@@ -18,7 +18,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SandwichController">
+<AnchorPane prefHeight="605.0" prefWidth="595.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SandwichController">
    <children>
       <BorderPane prefHeight="606.0" prefWidth="600.0">
          <bottom>
@@ -50,7 +50,7 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <MenuButton mnemonicParsing="false" prefHeight="25.0" prefWidth="117.0" text="Chicken" GridPane.rowIndex="1">
+                        <MenuButton fx:id="SandwichType" mnemonicParsing="false" onAction="#ChangeSandwichType" prefHeight="25.0" prefWidth="117.0" text="Chicken" GridPane.rowIndex="1">
                           <items>
                             <MenuItem mnemonicParsing="false" text="Fish" />
                             <MenuItem mnemonicParsing="false" text="Steak" />
@@ -139,4 +139,3 @@
       </BorderPane>
    </children>
 </AnchorPane>
-

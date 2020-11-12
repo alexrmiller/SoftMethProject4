@@ -2,20 +2,32 @@ package application;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 
 public class SandwichController {
 
-
+	@FXML
+	private MenuButton SandwichType;
+	
+	@FXML
+	private TextArea Text;
+	
 	@FXML
     private ListView<?> IngredientsIncluded;
-
+	
     @FXML
     private ListView<?> IngredientSelection;
 
     @FXML
     private ListView<?> ExtraIngredients;
 
+    @FXML
+    void ChangeSandwichType(MouseEvent event) {
+    	Text.setText("test");
+    }
+    
     @FXML
     void Add(MouseEvent event) {
 

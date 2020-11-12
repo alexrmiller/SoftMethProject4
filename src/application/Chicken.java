@@ -21,8 +21,11 @@ public class Chicken extends Sandwich {
 
 	@Override
 	public double price() {
-		// TODO Auto-generated method stub
-		return 0;
+		double initialPrice = 8.99;
+		for(Extra e : extras) {
+			initialPrice+=1.99;
+		}
+		return initialPrice;
 	}
 	
 	@Override
