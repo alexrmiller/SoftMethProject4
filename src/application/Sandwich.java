@@ -1,5 +1,7 @@
 package application;
 
+import java.util.ArrayList;
+
 public abstract class Sandwich implements Customizable {
 
 	static final int MAX_EXTRAS = 6;
@@ -7,6 +9,9 @@ public abstract class Sandwich implements Customizable {
 	protected ArrayList<Extra> extras;
 	
 	public abstract double price();
-	public String toString();
+	
+	public String toString() {
+		return null;
+	}
 	
 }

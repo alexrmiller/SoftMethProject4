@@ -1,45 +1,46 @@
 package application;
 
-import com.sun.glass.events.MouseEvent;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 
 public class SandwichController {
 
 
-    @FXML
-    private ListView<?> OrderList;
+	@FXML
+    private ListView<?> IngredientsIncluded;
 
     @FXML
-    private TextField OrderTotal;
+    private ListView<?> IngredientSelection;
 
     @FXML
-    void Back(MouseEvent event) {
+    private ListView<?> ExtraIngredients;
+
+    @FXML
+    void Add(MouseEvent event) {
 
     }
 
     @FXML
-    void ClearOrder(MouseEvent event) {
+    void AddtoOrder(MouseEvent event) {
 
     }
 
     @FXML
-    void RemoveOrderLine(MouseEvent event) {
+    void Clear(MouseEvent event) {
 
     }
 
     @FXML
-    void SameOrderLine(MouseEvent event) {
+    void Remove(MouseEvent event) {
 
     }
 
     @FXML
-    void SaveOrdertoFile(MouseEvent event) {
+    void ShowOrder(MouseEvent event) {
 
     }
-	
+
     @FXML
     void ErrorButton(MouseEvent event) {
 

@@ -24,5 +24,10 @@ public class Chicken extends Sandwich {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	@Override
+	public String toString() {
+		return null;
+	}
 
 }
