@@ -25,12 +25,11 @@ public class SandwichController {
 
     @FXML
     void ChangeSandwichType(MouseEvent event) {
-    	Text.setText("test");
     }
     
     @FXML
     void Add(MouseEvent event) {
-
+    	Text.setText("test");
     }
 
     @FXML

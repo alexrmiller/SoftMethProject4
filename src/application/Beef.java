@@ -18,7 +18,7 @@ public class Beef extends Sandwich{
 	@Override
 	public boolean add(Object obj) {
 		if (obj instanceof Extra) {
-			if (Beef.super.extras.size() < Sandwich.MAX_EXTRAS) {
+			if (Beef.super.extras.size() < Sandwich.MAX_EXTRAS && !Beef.super.extras.contains((Extra)obj)) {
 				return Beef.super.extras.add((Extra) obj);
 			}
 		}

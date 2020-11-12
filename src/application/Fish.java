@@ -18,7 +18,7 @@ public class Fish extends Sandwich{
 	@Override
 	public boolean add(Object obj) {
 		if (obj instanceof Extra) {
-			if (Fish.super.extras.size() < Sandwich.MAX_EXTRAS) {
+			if (Fish.super.extras.size() < Sandwich.MAX_EXTRAS && !Fish.super.extras.contains((Extra)obj)) {
 				return Fish.super.extras.add((Extra) obj);
 			}
 		}
