@@ -4,16 +4,17 @@ import java.util.ArrayList;
 
 public class Order implements Customizable {
 
-	public static int lineNumber;
-	private ArrayList<OrderLine> orderlines;
+	public static int lineNumber; //create an int and increment it?
+	private ArrayList<OrderLine> orderlines; //all sandwiches within an order, will be used on second GUI page
+	
+	public Order(ArrayList<OrderLine> orderline) {
+		this.orderlines=orderline;
+	}
 	
 	@Override
-	public boolean add(Object obj) {
+	public boolean add(Object obj) { //called everytime that you press add to order
 		if(obj instanceof OrderLine) {
-			orderlines.add((OrderLine)obj);
-		}
-		else {
-			return false;
+		  	return orderlines.add((OrderLine)obj);
 		}
 		return true;
 	}
@@ -21,12 +22,9 @@ public class Order implements Customizable {
 	@Override
 	public boolean remove(Object obj) {
 		if(obj instanceof OrderLine) {
-			orderlines.remove((OrderLine)obj);
+			return orderlines.remove((OrderLine)obj);
 		}
-		else {
-			return false;
-		}
-		return true;
+		return false;
 	}
 	
 	

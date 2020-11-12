@@ -1,16 +1,37 @@
 package application;
 
-public class Beef extends Sandwich{
+import java.util.ArrayList;
 
+public class Beef extends Sandwich{
+	
+	private String Bmeat;
+	private String Btopping1;
+	private String Btopping2;
+	private ArrayList<Extra> extras;
+	
+	public Beef(ArrayList<Extra> extras) {
+		super(extras);
+		this.Bmeat="Roast Beef";
+		this.Btopping1="Provolone Cheese";
+		this.Btopping2="Mustard";
+	}
 	@Override
 	public boolean add(Object obj) {
-		// TODO Auto-generated method stub
+		if (obj instanceof Extra) {
+			if (Beef.super.extras.size() < Sandwich.MAX_EXTRAS) {
+				return Beef.super.extras.add((Extra) obj);
+			}
+		}
 		return false;
 	}
 
 	@Override
 	public boolean remove(Object obj) {
-		// TODO Auto-generated method stub
+		if (obj instanceof Extra) {
+			if (Beef.super.extras.size() > 0) {
+				return Beef.super.extras.remove((Extra) obj);
+			}
+		}
 		return false;
 	}
 
@@ -18,14 +39,19 @@ public class Beef extends Sandwich{
 	public double price() {
 		double initialPrice = 10.99;
 		for(Extra e : extras) {
-			initialPrice+=1.99;
+			initialPrice+=Sandwich.PER_EXTRA;
 		}
 		return initialPrice;
 	}
 	
 	@Override
 	public String toString() {
-		return null;
+		StringBuilder sb = new StringBuilder();
+		sb.append(this.Bmeat + ", " + this.Btopping1 + ", " + this.Btopping2 + ", ");
+		for(Extra e : extras) {
+			sb.append(e.toString() + ", ");
+		}
+		return sb.toString();
 	}
 
 }
