@@ -22,7 +22,7 @@
    <children>
       <BorderPane prefHeight="606.0" prefWidth="600.0">
          <bottom>
-            <TextArea prefHeight="98.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+            <TextArea fx:id="TextArea" prefHeight="98.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
          </bottom>
          <top>
             <HBox prefHeight="137.0" prefWidth="600.0" BorderPane.alignment="CENTER">
@@ -50,10 +50,11 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <MenuButton fx:id="SandwichType" mnemonicParsing="false" onAction="#ChangeSandwichType" prefHeight="25.0" prefWidth="117.0" text="Chicken" GridPane.rowIndex="1">
+                        <MenuButton fx:id="SandwichType" mnemonicParsing="false" prefHeight="25.0" prefWidth="117.0" text="Chicken" GridPane.rowIndex="1">
                           <items>
-                            <MenuItem mnemonicParsing="false" text="Fish" />
-                            <MenuItem mnemonicParsing="false" text="Steak" />
+                            <MenuItem mnemonicParsing="false" onAction="#ToFish" text="Fish" />
+                            <MenuItem mnemonicParsing="false" onAction="#ToBeef" text="Beef" />
+                              <MenuItem mnemonicParsing="false" onAction="#ToChicken" text="Chicken" />
                           </items>
                            <GridPane.margin>
                               <Insets bottom="80.0" left="10.0" />
@@ -65,7 +66,7 @@
                         <Insets />
                      </HBox.margin>
                   </GridPane>
-                  <Pane prefHeight="137.0" prefWidth="303.0" />
+                  <Pane fx:id="Picture" prefHeight="137.0" prefWidth="303.0" />
                </children>
             </HBox>
          </top>
@@ -115,7 +116,7 @@
                               <Font size="15.0" />
                            </font>
                         </Label>
-                        <TextField prefHeight="25.0" prefWidth="0.0" />
+                        <TextField fx:id="Price" prefHeight="25.0" prefWidth="0.0" text="\$8.99" />
                         <Button mnemonicParsing="false" onMouseClicked="#AddtoOrder" prefHeight="33.0" prefWidth="122.0" text="Add To Order" />
                         <Button layoutX="10.0" layoutY="80.0" mnemonicParsing="false" onMouseClicked="#ShowOrder" prefHeight="33.0" prefWidth="111.0" text="Show Order" />
                      </children>
