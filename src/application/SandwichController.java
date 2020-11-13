@@ -32,8 +32,6 @@ public class SandwichController {
     
     @FXML
     private Pane Picture;
-
-    
     
     
     @FXML
@@ -44,16 +42,12 @@ public class SandwichController {
     	IngredientsIncluded.getItems().add("Roast Beef");
     	IngredientsIncluded.getItems().add("Provolone Cheese");
     	IngredientsIncluded.getItems().add("Mustard");
-    	IngredientSelection.getItems().add("test1");
-    	IngredientSelection.getItems().add("test2");
-    	IngredientSelection.getItems().add("test3");
-    	IngredientSelection.getItems().add("test4");
-    	IngredientSelection.getItems().add("test5");
-    	IngredientSelection.getItems().add("test6");
-    	IngredientSelection.getItems().add("test7");
-    	IngredientSelection.getItems().add("test8");
+    	if(!ExtraIngredients.getItems().isEmpty()) {
+    		while(!ExtraIngredients.getItems().isEmpty()) {
+    			IngredientSelection.getItems().add(ExtraIngredients.getItems().remove(0));
+    		}
+    	}
     	//change photo
-    	//remove extra
     }
     
     @FXML
@@ -65,13 +59,11 @@ public class SandwichController {
     	IngredientsIncluded.getItems().add("Cilantro");
     	IngredientsIncluded.getItems().add("Lime");    	
     	if(!ExtraIngredients.getItems().isEmpty()) {
-    		for(String e : ExtraIngredients.getItems()) {
-    			IngredientSelection.getItems().add(e);
-    			ExtraIngredients.getItems().remove(e);
+    		while(!ExtraIngredients.getItems().isEmpty()) {
+    			IngredientSelection.getItems().add(ExtraIngredients.getItems().remove(0));
     		}
     	}
     	//change photo
-    	//remove extra
     }
     
     //on change event for sandwich type
@@ -85,8 +77,12 @@ public class SandwichController {
     	IngredientsIncluded.getItems().add("Fried Chicken");
     	IngredientsIncluded.getItems().add("SpicySauce");
     	IngredientsIncluded.getItems().add("Pickles");
+    	if(!ExtraIngredients.getItems().isEmpty()) {
+    		while(!ExtraIngredients.getItems().isEmpty()) {
+    			IngredientSelection.getItems().add(ExtraIngredients.getItems().remove(0));
+    		}
+    	}
     	//change photo
-    	//remove extra
     }
     
     //on click event for add 
@@ -108,14 +104,14 @@ public class SandwichController {
     
    //on click event for adding orderline to order
     @FXML
+    //figure out bug here
     void AddtoOrder(MouseEvent event) {
     	Order o = null;
-    	
-    	if(ExtraIngredients.getItems().isEmpty()) {
-    		ArrayList<Extra> extras = null;
+    	ArrayList<Extra> extras= new ArrayList<Extra>();
+    	while(!ExtraIngredients.getItems().isEmpty()) {
+    		Extra e = new Extra(ExtraIngredients.getItems().remove(0));	
+    		extras.add(e);
     	}
-    	//make all the extras into 
-    	ArrayList<Extra> extras = null;
     	switch (SandwichType.textProperty().get().toLowerCase()) {
     	
     	case "chicken":
@@ -126,13 +122,17 @@ public class SandwichController {
     		
     	case "beef":
     		Beef b = new Beef(extras);
+    		OrderLine bol = new OrderLine(4,b,b.price());
+    		o.add(bol);
+    		break;
     		
     	case "fish":
     		Fish f = new Fish(extras);
+    		OrderLine fol = new OrderLine(4,f,f.price());
+    		o.add(fol);
+    		break;
     	}
-    	//add orderline to order
     	ToChicken();
-    	
     }
 
     @FXML

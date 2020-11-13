@@ -60,7 +60,7 @@
                               <Insets bottom="80.0" left="10.0" />
                            </GridPane.margin>
                         </MenuButton>
-                        <ListView fx:id="IngredientsIncluded" disable="true" prefHeight="106.0" prefWidth="143.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <ListView fx:id="IngredientsIncluded"  disable="true" prefHeight="106.0" prefWidth="143.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                      </children>
                      <HBox.margin>
                         <Insets />
