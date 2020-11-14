@@ -6,8 +6,7 @@ public class Chicken extends Sandwich {
 
 	private String Cmeat;
 	private String Ctopping1;
-	private String Ctopping2;
-	private ArrayList<Extra> extras; //refers to the list view of added extras
+	private String Ctopping2; //refers to the list view of added extras
 	
 	public Chicken(ArrayList<Extra> extras) {
 		super(extras);
@@ -38,11 +37,7 @@ public class Chicken extends Sandwich {
 
 	@Override
 	public double price() {
-		double initialPrice = 8.99;
-		for (Extra e : extras) {
-			initialPrice += Sandwich.PER_EXTRA;
-		}
-		return initialPrice;
+		return 8.99 + extras.size()*1.99;
 	}
 
 	@Override

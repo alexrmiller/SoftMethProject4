@@ -33,6 +33,9 @@ public class SandwichController {
     @FXML
     private Pane Picture;
     
+    int orderLine = 1;
+    ArrayList<OrderLine> ol = new ArrayList<OrderLine>();
+	Order o = new Order(ol);
     
     @FXML
     void ToBeef() {
@@ -69,13 +72,11 @@ public class SandwichController {
     //on change event for sandwich type
     @FXML
     void ToChicken() {
-    	ArrayList<Extra> extras = new ArrayList<Extra>();
-    	Chicken c = new Chicken(extras);
     	SandwichType.textProperty().setValue("Chicken");
     	Price.textProperty().setValue("8.99");
     	IngredientsIncluded.getItems().clear();
     	IngredientsIncluded.getItems().add("Fried Chicken");
-    	IngredientsIncluded.getItems().add("SpicySauce");
+    	IngredientsIncluded.getItems().add("Spicy Sauce");
     	IngredientsIncluded.getItems().add("Pickles");
     	if(!ExtraIngredients.getItems().isEmpty()) {
     		while(!ExtraIngredients.getItems().isEmpty()) {
@@ -91,7 +92,8 @@ public class SandwichController {
     	if(IngredientSelection.getSelectionModel().getSelectedItem()!=null && ExtraIngredients.getItems().size()<6) {
     	ExtraIngredients.getItems().add(IngredientSelection.getSelectionModel().getSelectedItem());
     	IngredientSelection.getItems().remove(IngredientSelection.getSelectionModel().getSelectedItem());
-    	//change price
+    	double price = Double.parseDouble(Price.textProperty().getValue())+1.99;
+    	Price.textProperty().setValue(String.format("%.2f", price));
     	}
     	else if(ExtraIngredients.getItems().size()<6) {
     	//load other popup for error
@@ -104,32 +106,36 @@ public class SandwichController {
     
    //on click event for adding orderline to order
     @FXML
-    //figure out bug here
     void AddtoOrder(MouseEvent event) {
-    	Order o = null;
     	ArrayList<Extra> extras= new ArrayList<Extra>();
+    	
     	while(!ExtraIngredients.getItems().isEmpty()) {
-    		Extra e = new Extra(ExtraIngredients.getItems().remove(0));	
+    		Extra e = new Extra(ExtraIngredients.getItems().get(0).toString());	
     		extras.add(e);
+    		IngredientSelection.getItems().add(ExtraIngredients.getItems().remove(0));
     	}
+    	
     	switch (SandwichType.textProperty().get().toLowerCase()) {
     	
     	case "chicken":
     		Chicken c = new Chicken(extras);
-    		OrderLine col = new OrderLine(4,c,c.price());
+    		OrderLine col = new OrderLine(orderLine,c,c.price());
     		o.add(col);
+    		orderLine++;
     		break;
     		
     	case "beef":
     		Beef b = new Beef(extras);
-    		OrderLine bol = new OrderLine(4,b,b.price());
+    		OrderLine bol = new OrderLine(orderLine,b,b.price());
     		o.add(bol);
+    		orderLine++;
     		break;
     		
     	case "fish":
     		Fish f = new Fish(extras);
-    		OrderLine fol = new OrderLine(4,f,f.price());
+    		OrderLine fol = new OrderLine(orderLine,f,f.price());
     		o.add(fol);
+    		orderLine++;
     		break;
     	}
     	ToChicken();
@@ -146,6 +152,8 @@ public class SandwichController {
     	if(ExtraIngredients.getSelectionModel().getSelectedItem()!=null) {
     		IngredientSelection.getItems().add(ExtraIngredients.getSelectionModel().getSelectedItem());
     		ExtraIngredients.getItems().remove(ExtraIngredients.getSelectionModel().getSelectedItem());
+    		double price = Double.parseDouble(Price.textProperty().getValue())-1.99;
+        	Price.textProperty().setValue(String.format("%.2f", price));
         	}
     	else {
     		TextArea.setText("invalid: no extras to remove");

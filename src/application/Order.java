@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Order implements Customizable {
 
-	public static int lineNumber; //create an int and increment it?
-	private ArrayList<OrderLine> orderlines; //all sandwiches within an order, will be used on second GUI page
+	public static int lineNumber;
+	private ArrayList<OrderLine> orderlines;//all sandwiches within an order, will be used on second GUI page
 	
 	public Order(ArrayList<OrderLine> orderline) {
 		this.orderlines=orderline;

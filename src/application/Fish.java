@@ -7,7 +7,6 @@ public class Fish extends Sandwich{
 	private String Fmeat;
 	private String Ftopping1;
 	private String Ftopping2;
-	private ArrayList<Extra> extras;
 	
 	public Fish(ArrayList<Extra> extras) {
 		super(extras);
@@ -38,11 +37,7 @@ public class Fish extends Sandwich{
 
 	@Override
 	public double price() {
-		double initialPrice = 12.99;
-		for(Extra e : extras) {
-			initialPrice+=Sandwich.PER_EXTRA;
-		}
-		return initialPrice;
+		return 12.99 + extras.size()*1.99;
 	}
 	
 	@Override

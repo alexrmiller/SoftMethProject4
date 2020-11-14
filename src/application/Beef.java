@@ -7,7 +7,6 @@ public class Beef extends Sandwich{
 	private String Bmeat;
 	private String Btopping1;
 	private String Btopping2;
-	private ArrayList<Extra> extras;
 	
 	public Beef(ArrayList<Extra> extras) {
 		super(extras);
@@ -37,11 +36,7 @@ public class Beef extends Sandwich{
 
 	@Override
 	public double price() {
-		double initialPrice = 10.99;
-		for(Extra e : extras) {
-			initialPrice+=Sandwich.PER_EXTRA;
-		}
-		return initialPrice;
+		return 10.99 + extras.size()*1.99;
 	}
 	
 	@Override
