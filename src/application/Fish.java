@@ -7,16 +7,29 @@ import java.util.ArrayList;
 
 public class Fish extends Sandwich{
 
+	/*
+	 * instance variables for Fish Sandwich
+	 */
 	private String Fmeat;
 	private String Ftopping1;
 	private String Ftopping2;
 	
+	/*
+	 * constructor for sandwich of type Fish, this has the given meats and
+	 * toppings and calls Sandwiches super constructor to add the array list of
+	 * extras
+	 */
 	public Fish(ArrayList<Extra> extras) {
 		super(extras);
 		this.Fmeat="Grilled Snapper";
 		this.Ftopping1="Cilantro";
 		this.Ftopping2="Lime";
 	}
+	
+	/*
+	 * given an extra it adds it to the extras for the sandwich if there isn't more
+	 * than 6 extras already and it isn't a duplicate
+	 */
 	@Override
 	public boolean add(Object obj) {
 		if (obj instanceof Extra) {
@@ -27,7 +40,9 @@ public class Fish extends Sandwich{
 		return false;
 	}
 
-	//removes an extra?
+	/*
+	 * removes a given extra from the sandwiches extra array list
+	 */
 	@Override
 	public boolean remove(Object obj) {
 		if (obj instanceof Extra) {
@@ -38,11 +53,19 @@ public class Fish extends Sandwich{
 		return false;
 	}
 
+	/*
+	 * returns the price of the sandwich based on the price of Fish plus the
+	 * price of all added extras
+	 */
 	@Override
 	public double price() {
 		return 12.99 + extras.size()*1.99;
 	}
 	
+	/*
+	 * returns the sandwich object to a string type to be able to print it out in a
+	 * text file, adds the included and extra ingredients if there are any
+	 */
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();

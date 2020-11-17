@@ -68,8 +68,8 @@ public class SandwichController {
 	Order o = new Order(ol);
 
 	/*
-	 * on change event to alter the information based on when the sandwich type "beef" is
-	 * selected from the sandwich drop down. changes the image, included
+	 * on change event to alter the information based on when the sandwich type
+	 * "beef" is selected from the sandwich drop down. changes the image, included
 	 * ingredients, price, resets the extra ingredients, and alters sandwich type
 	 */
 	@FXML
@@ -93,8 +93,8 @@ public class SandwichController {
 	}
 
 	/*
-	 * on change event to alter the information based on when the sandwich type "fish" is
-	 * selected from the sandwich drop down. changes the image, included
+	 * on change event to alter the information based on when the sandwich type
+	 * "fish" is selected from the sandwich drop down. changes the image, included
 	 * ingredients, price, resets the extra ingredients, and alters sandwich type
 	 */
 	@FXML
@@ -118,9 +118,10 @@ public class SandwichController {
 	}
 
 	/*
-	 * on change event to alter the information based on when the sandwich type "chicken" is
-	 * selected from the sandwich drop down. changes the image, included
-	 * ingredients, price, resets the extra ingredients, and alters sandwich type
+	 * on change event to alter the information based on when the sandwich type
+	 * "chicken" is selected from the sandwich drop down. changes the image,
+	 * included ingredients, price, resets the extra ingredients, and alters
+	 * sandwich type
 	 */
 	@FXML
 	void ToChicken() {
@@ -170,7 +171,11 @@ public class SandwichController {
 		}
 	}
 
-	// on click event for adding orderline to order
+	/*
+	 * Adds the sandwich to the orderline of the current order. Creates either a
+	 * chicken,fish,or beef sandwich, once added the scene is reset to it's initial
+	 * state of a plain chicken sandwich
+	 */
 	@FXML
 	void AddtoOrder(MouseEvent event) {
 		ArrayList<Extra> extras = new ArrayList<Extra>();
@@ -204,12 +209,22 @@ public class SandwichController {
 		ToChicken();
 	}
 
+	/*
+	 * on click event that clears the current orderline information and resets it to
+	 * it's initial state of a plain chicken sandwich
+	 * 
+	 */
 	@FXML
 	void Clear(MouseEvent event) {
 		ToChicken();
 	}
 
-	// on click event to remove extras from sandwich
+	/*
+	 * on click event that removes the selected item in extra ingredients list view
+	 * to the ingredients selected and off of the orderline's ArrayList of Extra's.
+	 * Changes price based on amount of extras and an error pops up if you try to
+	 * remove extra when nothing is selected.
+	 */
 	@FXML
 	void Remove(MouseEvent event) {
 		if (ExtraIngredients.getSelectionModel().getSelectedItem() != null) {
@@ -226,7 +241,11 @@ public class SandwichController {
 		}
 	}
 
-	// on click event that passes through to the next view with the order #
+	/*
+	 * on click event that takes the order o and sends it's information to the order
+	 * summary page, sends an error if there is no sandwiches added to the order's
+	 * orderline
+	 */
 	@FXML
 	void ShowOrder(MouseEvent event) {
 		if (o.getOl().isEmpty()) {
