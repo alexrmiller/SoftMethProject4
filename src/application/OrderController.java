@@ -43,7 +43,6 @@ public class OrderController {
 	    	
 	    
 	    }
-	   
 	    
 	    
 	    @FXML
@@ -56,7 +55,7 @@ public class OrderController {
 	    @FXML
 	    void ClearOrder(MouseEvent event) {
 	    	OrderList.getItems().removeAll(OrderList.getItems());
-	    	order=null;
+	    	order.getOl().removeAll(order.getOl());
 	    }
 
 	    //make sure its selecting the right one
@@ -77,8 +76,8 @@ public class OrderController {
 	    	if(OrderList.getSelectionModel().getSelectedItem()!=null) {
 	    		//must add to Order array list
 	    		OrderLine ol = OrderList.getSelectionModel().getSelectedItem();
-	    		OrderLine newOl = new OrderLine(order.getOl().size()+1,ol.getSand(),ol.getPrice());
-	    		order.add(OrderList.getSelectionModel().getSelectedItem());
+	    		OrderLine newOl = new OrderLine((order.getOl().get(order.getOl().size()-1).getlineNum())+1,ol.getSand(),ol.getPrice());
+	    		order.getOl().add(newOl);
 	    		OrderList.getItems().add(newOl);
 	    		OrderTotal.textProperty().setValue(String.format("%.2f", order.getPrice()));
 	        	}
@@ -101,6 +100,7 @@ public class OrderController {
 				}
 				wr.write("Total Price: $" + OrderTotal.textProperty().getValue().toString());
 				wr.close();
+				Order.lineNumber++;
 			}catch(Exception e) {
 				Alert sceneError = new Alert(Alert.AlertType.ERROR);
 	    		sceneError.setTitle("Error!");

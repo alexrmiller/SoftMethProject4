@@ -16,6 +16,10 @@ public class OrderLine {
 		return this.sandwich;
 	}
 	
+	public int getlineNum() {
+		return this.lineNumber;
+	}
+	
 	public double getPrice() {
 		return this.price;
 	}
