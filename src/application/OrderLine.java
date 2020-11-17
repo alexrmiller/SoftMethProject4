@@ -2,7 +2,7 @@ package application;
 
 public class OrderLine {
 
-	private int lineNumber; //unsure where we get this
+	private int lineNumber; 
 	private Sandwich sandwich; // will be added via sandwich type dd selection and list view extras
 	private double price; //get this from Sandwich.price() 
 	
@@ -12,9 +12,20 @@ public class OrderLine {
 		this.price=price;
 	}
 	
+	public Sandwich getSand() {
+		return this.sandwich;
+	}
+	
+	public double getPrice() {
+		return this.price;
+	}
+	
 	@Override
 	public String toString() {
-		return null;
+		StringBuilder sb = new StringBuilder();
+        sb.append(this.lineNumber + ", " + this.sandwich.toString() + this.price);
+
+        return sb.toString();
 		
 	}
 }

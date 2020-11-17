@@ -8,4 +8,9 @@ public class Extra {
 		this.extra=extra;
 	}
 	
+	@Override
+	public String toString() {
+		return this.extra;
+	}
+	
 }

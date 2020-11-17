@@ -1,5 +1,8 @@
 package application;
 	
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -9,8 +12,13 @@ import javafx.scene.layout.AnchorPane;
 
 
 public class Main extends Application {
+	static AnchorPane root;
+	static List<AnchorPane> grid = new ArrayList<AnchorPane>();
+	public static int page = 0;
+	
+	Scene shop, orderlist;
 	@Override
-	public void start(Stage primaryStage) {
+	public void start(Stage primaryStage){
 		try {
 			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("Sammitch_shop.fxml"));
 			Scene scene = new Scene(root,595,605);

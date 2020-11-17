@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.SandwichController">
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.OrderController">
    <children>
       <BorderPane layoutX="7.0" layoutY="6.0" prefHeight="594.0" prefWidth="593.0">
          <top>
@@ -38,7 +38,7 @@
                   <Button mnemonicParsing="false" onMouseClicked="#SameOrderLine" prefHeight="25.0" prefWidth="123.0" text="+ Same Order LIne" />
                   <Button layoutX="10.0" layoutY="19.0" mnemonicParsing="false" onMouseClicked="#RemoveOrderLine" prefHeight="25.0" prefWidth="134.0" text="- Remove Order Line" GridPane.columnIndex="1" />
                   <Button layoutX="10.0" layoutY="19.0" mnemonicParsing="false" onMouseClicked="#ClearOrder" prefHeight="25.0" prefWidth="122.0" text="Clear Order" GridPane.rowIndex="1" />
-                  <Button layoutX="10.0" layoutY="19.0" mnemonicParsing="false" onMouseClicked="#Back" prefHeight="25.0" prefWidth="134.0" text="Back" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Button fx:id="SendToSandwitchShop" layoutX="10.0" layoutY="19.0" mnemonicParsing="false" onMouseClicked="#Back" prefHeight="25.0" prefWidth="134.0" text="Back" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <Button layoutX="122.0" layoutY="60.0" mnemonicParsing="false" onMouseClicked="#SaveOrdertoFile" prefHeight="25.0" prefWidth="203.0" text="Save Order to File" GridPane.columnIndex="4" GridPane.rowIndex="1">
                      <GridPane.margin>
                         <Insets right="10.0" />
@@ -56,3 +56,4 @@
       </BorderPane>
    </children>
 </AnchorPane>
+
