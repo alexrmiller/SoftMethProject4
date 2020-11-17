@@ -1,3 +1,6 @@
+/*Author: Maudiel Romero and Alex Miller
+ * 
+ */
 package application;
 	
 import java.util.ArrayList;
@@ -19,6 +22,7 @@ public class Main extends Application {
 	Scene shop, orderlist;
 	@Override
 	public void start(Stage primaryStage){
+		primaryStage.setTitle("Main Menu");
 		try {
 			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("Sammitch_shop.fxml"));
 			Scene scene = new Scene(root,595,605);

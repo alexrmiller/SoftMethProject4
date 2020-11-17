@@ -24,7 +24,7 @@
    <children>
       <BorderPane prefHeight="606.0" prefWidth="600.0">
          <bottom>
-            <TextArea fx:id="TextArea" prefHeight="98.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
+            <TextArea fx:id="TextArea" editable="false" prefHeight="98.0" prefWidth="600.0" BorderPane.alignment="CENTER" />
          </bottom>
          <top>
             <HBox prefHeight="137.0" prefWidth="600.0" BorderPane.alignment="CENTER">

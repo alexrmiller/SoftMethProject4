@@ -1,3 +1,6 @@
+/*Author: Maudiel Romero and Alex Miller
+ * 
+ */
 package application;
 
 public class OrderLine {

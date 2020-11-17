@@ -1,3 +1,6 @@
+/*Author: Maudiel Romero and Alex Miller
+ * 
+ */
 package application;
 
 import java.awt.event.ActionEvent;
